@@ -1,4 +1,10 @@
 
+# This file is the implementation of the algorithm 1 and includes the main function
+# One can use this file if the training and test files are separated.
+# Inputs can be tuned in the corresponding area
+# The accuracy rates and all function parameters are printed to the console as output
+# Dataset can be in csv or arff file.
+# If there are n classes; class labels should be integers 1 to n in the last column
 
 import numpy as np
 from gurobipy import *
@@ -188,6 +194,9 @@ dataTest = readData('/Users/exampleTest.csv')
 #dataTrain = arffOku('exampleTrain.arff')
 
 tolpr=0.90 #epsilon 1 in algorithm 1
+#epsilon 1 in algorithm 1 This parameter is a threshold to decide whether an LP is necessary, or not, in the ICF algorithm.
+# High values for this parameter increases the chance of calling the LP for PCF construction, while its low values favor for algebraic cone construction
+# (corresponding to a faster, but possibly lower resolution result).
 
 ######################
 
@@ -283,3 +292,5 @@ print "##################################################################"
 
 
 print("--- %s seconds elapsed ---" % (time.time() - start_time))
+
+
