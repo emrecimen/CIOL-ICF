@@ -1,3 +1,10 @@
+# This file is the implementation of the algorithm 1 and includes the main function
+# One can use this file for n-fold cross validation tests
+# Inputs can be tuned in the corresponding area
+# The accuracy rates and all function parameters are printed to the console as output
+# Dataset can be in csv or arff file.
+# If there are n classes; class labels should be integers 1 to n in the last column
+
 import numpy as np
 from gurobipy import *
 import math
@@ -201,10 +208,14 @@ testDO=[]
 allFCN=[]
 
 ###################### INPUTS ###############################
-data = readData('/Users/example.csv') #Dataset path should be gviven here.
+data = readData('illustrativeExample.csv') #Dataset path should be given here.
 #data = readArff('example.arff')
-tolpr=0.60 #epsilon 1 in algorithm 1
-TF=10 # Means 10 fold cross validation will be done.
+
+tolpr=0.95 #epsilon in algorithm 1 This parameter is a threshold to decide whether an LP is necessary, or not, in the ICF algorithm.
+# High values for this parameter increases the chance of calling the LP for PCF construction, while its low values favor for algebraic cone construction
+# (corresponding to a faster, but possibly lower resolution result).
+
+TF=2 # Means 10 fold cross validation will be done.
 ######################
 
 mm=len(data)  # row size
@@ -289,6 +300,7 @@ print "##################################################################"
 
 
 print("--- %s seconds elapsed ---" % (time.time() - start_time))
+
 
 
 
