@@ -66,7 +66,7 @@ def eliminateWithR(A, B, c, r, rb):
 def getPureClusters(A, B):
 
     stop=0
-    clusterNum=2
+    clusterNum=1
     tol = tau3
     cont=1
 
